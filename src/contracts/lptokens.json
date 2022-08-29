@@ -1,0 +1,1435 @@
+{
+  "31337": {
+    "JPL": {
+      "JPL-WETHe-WAVAX": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xFE15c2695F1F920da45C30AAE47d11dE51007AF9",
+        "pid": 26,
+        "anchorName": "WETHe"
+      },
+      "JPL-USDCe-WAVAX": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xA389f9430876455C36478DeEa9769B7Ca4E3DDB1",
+        "pid": 39,
+        "anchorName": "USDCe"
+      },
+      "JPL-WAVAX-WETHe": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xFE15c2695F1F920da45C30AAE47d11dE51007AF9",
+        "pid": 26,
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-WETHe": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0x199fb78019A08af2Cb6a078409D0C8233Eba8a0c",
+        "pid": 55,
+        "anchorName": "USDCe"
+      },
+      "JPL-WETHe-PNG": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0x60781c2586d68229fde47564546784ab3faca982"
+        ],
+        "anchorName": "WETHe"
+      },
+      "JPL-WAVAX-PNG": {
+        "addresses": [
+          "0x60781c2586d68229fde47564546784ab3faca982",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x3dAF1C6268362214eBB064647555438c6f365F96",
+        "pid": 6,
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-PNG": {
+        "addresses": [
+          "0x60781c2586d68229fde47564546784ab3faca982",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "JPL-WETHe-USDTe": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0xc7198437980c041c805a1edcba50c1ce5db95118"
+        ],
+        "pairAddress": "0xbe1b87f47fDE3F338Aa3AA98b85435e1709dFD06",
+        "pid": 33,
+        "anchorName": "WETHe"
+      },
+      "JPL-WAVAX-USDTe": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xc7198437980c041c805a1edcba50c1ce5db95118"
+        ],
+        "pairAddress": "0xeD8CBD9F0cE3C6986b22002F03c6475CEb7a6256",
+        "pid": 28,
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-USDTe": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xc7198437980c041c805a1edcba50c1ce5db95118"
+        ],
+        "pairAddress": "0x2E02539203256c83c7a9F6fA6f8608A32A2b1Ca2",
+        "pid": 49,
+        "anchorName": "USDCe"
+      },
+      "JPL-WETHe-YAK": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0x59414b3089ce2af0010e7523dea7e2b35d776ec7"
+        ],
+        "anchorName": "WETHe"
+      },
+      "JPL-WAVAX-YAK": {
+        "addresses": [
+          "0x59414b3089ce2af0010e7523dea7e2b35d776ec7",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xb5c9e891AF3063004a441BA4FaB4cA3D6DEb5626",
+        "pid": 25,
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-YAK": {
+        "addresses": [
+          "0x59414b3089ce2af0010e7523dea7e2b35d776ec7",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0xc2Ea99c031B05aE03044C857c78afb5671deE96B",
+        "anchorName": "USDCe"
+      },
+      "JPL-WETHe-QI": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0x8729438eb15e2c8b576fcc6aecda6a148776c0f5"
+        ],
+        "anchorName": "WETHe"
+      },
+      "JPL-WAVAX-QI": {
+        "addresses": [
+          "0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x2774516897AC629aD3ED9dCac7e375Dda78412b9",
+        "pid": 41,
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-QI": {
+        "addresses": [
+          "0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0x2c2bd72D957Eb58a9899fcb90305cDE5ea619b16",
+        "anchorName": "USDCe"
+      },
+      "JPL-WETHe-JOE": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0x6e84a6216ea6dacc71ee8e6b0a5b7322eebc0fdd"
+        ],
+        "pairAddress": "0x0B676896c8623f6b8979eD3b8a730F974092CaAF",
+        "anchorName": "WETHe"
+      },
+      "JPL-WAVAX-JOE": {
+        "addresses": [
+          "0x6e84a6216ea6dacc71ee8e6b0a5b7322eebc0fdd",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x454E67025631C065d3cFAD6d71E6892f74487a15",
+        "pid": 0,
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-JOE": {
+        "addresses": [
+          "0x6e84a6216ea6dacc71ee8e6b0a5b7322eebc0fdd",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0x67926d973cD8eE876aD210fAaf7DFfA99E414aCf",
+        "pid": 58,
+        "anchorName": "USDCe"
+      },
+      "JPL-WETHe-USDCe": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0x199fb78019A08af2Cb6a078409D0C8233Eba8a0c",
+        "pid": 55,
+        "anchorName": "WETHe"
+      },
+      "JPL-WAVAX-USDCe": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xA389f9430876455C36478DeEa9769B7Ca4E3DDB1",
+        "pid": 39,
+        "anchorName": "WAVAX"
+      },
+      "JPL-WETHe-USDC": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"
+        ],
+        "pairAddress": "0x9A166ae3d4C3C2a7fEbfAe86D16896933f4e10a9",
+        "anchorName": "WETHe"
+      },
+      "JPL-WAVAX-USDC": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"
+        ],
+        "pairAddress": "0xf4003F4efBE8691B60249E6afbD307aBE7758adb",
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-USDC": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"
+        ],
+        "pairAddress": "0x2A8A315e82F85D1f0658C5D66A452Bbdd9356783",
+        "anchorName": "USDCe"
+      },
+      "JPL-WETHe-DAIe": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0xd586e7f844cea2f87f50152665bcbc2c279d8d70"
+        ],
+        "anchorName": "WETHe"
+      },
+      "JPL-WAVAX-DAIe": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xd586e7f844cea2f87f50152665bcbc2c279d8d70"
+        ],
+        "pairAddress": "0x87Dee1cC9FFd464B79e058ba20387c1984aed86a",
+        "pid": 37,
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-DAIe": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xd586e7f844cea2f87f50152665bcbc2c279d8d70"
+        ],
+        "pairAddress": "0x63ABE32d0Ee76C05a11838722A63e012008416E6",
+        "pid": 40,
+        "anchorName": "USDCe"
+      },
+      "JPL-WETHe-WBTCe": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0x50b7545627a5162f82a992c33b87adc75187b218"
+        ],
+        "pairAddress": "0x3A409097BB0d5681336a04b0d08077FAaDf7d74E",
+        "anchorName": "WETHe"
+      },
+      "JPL-WAVAX-WBTCe": {
+        "addresses": [
+          "0x50b7545627a5162f82a992c33b87adc75187b218",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xd5a37dC5C9A396A03dd1136Fc76A1a02B1c88Ffa",
+        "pid": 27,
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-WBTCe": {
+        "addresses": [
+          "0x50b7545627a5162f82a992c33b87adc75187b218",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0x62475f52aDd016A06B398aA3b2C2f2E540d36859",
+        "pid": 54,
+        "anchorName": "USDCe"
+      },
+      "JPL-WETHe-MAXI": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0x7c08413cbf02202a1c13643db173f2694e0f73f0"
+        ],
+        "anchorName": "WETHe"
+      },
+      "JPL-WAVAX-MAXI": {
+        "addresses": [
+          "0x7c08413cbf02202a1c13643db173f2694e0f73f0",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x5B81bac8281f8939ee130157065807703bfAe36F",
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-MAXI": {
+        "addresses": [
+          "0x7c08413cbf02202a1c13643db173f2694e0f73f0",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "JPL-WETHe-wsMAXI": {
+        "addresses": [
+          "0x2148d1b21faa7eb251789a51b404fc063ca6aad6",
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab"
+        ],
+        "anchorName": "WETHe"
+      },
+      "JPL-WAVAX-wsMAXI": {
+        "addresses": [
+          "0x2148d1b21faa7eb251789a51b404fc063ca6aad6",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-wsMAXI": {
+        "addresses": [
+          "0x2148d1b21faa7eb251789a51b404fc063ca6aad6",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "JPL-WETHe-xJOE": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0x57319d41f71e81f3c65f2a47ca4e001ebafd4f33"
+        ],
+        "anchorName": "WETHe"
+      },
+      "JPL-WAVAX-xJOE": {
+        "addresses": [
+          "0x57319d41f71e81f3c65f2a47ca4e001ebafd4f33",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x798C7E8455351472c735794477F6769adD7e7593",
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-xJOE": {
+        "addresses": [
+          "0x57319d41f71e81f3c65f2a47ca4e001ebafd4f33",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "JPL-WETHe-PTP": {
+        "addresses": [
+          "0x22d4002028f537599be9f666d1c4fa138522f9c8",
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab"
+        ],
+        "anchorName": "WETHe"
+      },
+      "JPL-WAVAX-PTP": {
+        "addresses": [
+          "0x22d4002028f537599be9f666d1c4fa138522f9c8",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xCDFD91eEa657cc2701117fe9711C9a4F61FEED23",
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-PTP": {
+        "addresses": [
+          "0x22d4002028f537599be9f666d1c4fa138522f9c8",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0x69680784b6eAd830b53C7a5e937562E145a285f4",
+        "anchorName": "USDCe"
+      },
+      "JPL-WETHe-JPL-WAVAX-JOE": {
+        "addresses": [
+          "0x454e67025631c065d3cfad6d71e6892f74487a15",
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab"
+        ],
+        "anchorName": "WETHe"
+      },
+      "JPL-WAVAX-JPL-WAVAX-JOE": {
+        "addresses": [
+          "0x454e67025631c065d3cfad6d71e6892f74487a15",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x883b90Ef225B255E416405c5Dd9214D7Cdb09908",
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-JPL-WAVAX-JOE": {
+        "addresses": [
+          "0x454e67025631c065d3cfad6d71e6892f74487a15",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "JPL-WETHe-sAVAX": {
+        "addresses": [
+          "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab"
+        ],
+        "pairAddress": "0x4f5961e23Be90b6B4B8084B27597b50544333910",
+        "anchorName": "WETHe"
+      },
+      "JPL-WAVAX-sAVAX": {
+        "addresses": [
+          "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d",
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-sAVAX": {
+        "addresses": [
+          "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0xA7f38AEd6bfE22954921FD19437C2527a3B32Cc0",
+        "anchorName": "USDCe"
+      },
+      "JPL-WETHe-JPL-WAVAX-PTP": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0xcdfd91eea657cc2701117fe9711c9a4f61feed23"
+        ],
+        "anchorName": "WETHe"
+      },
+      "JPL-WAVAX-JPL-WAVAX-PTP": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xcdfd91eea657cc2701117fe9711c9a4f61feed23"
+        ],
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-JPL-WAVAX-PTP": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xcdfd91eea657cc2701117fe9711c9a4f61feed23"
+        ],
+        "anchorName": "USDCe"
+      }
+    },
+    "PGL": {
+      "PGL-WETHe-WAVAX": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x7c05d54fc5CB6e4Ad87c6f5db3b807C94bB89c52",
+        "pid": 8,
+        "anchorName": "WETHe"
+      },
+      "PGL-USDCe-WAVAX": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xbd918Ed441767fe7924e99F6a0E0B568ac1970D9",
+        "pid": 9,
+        "anchorName": "USDCe"
+      },
+      "PGL-WAVAX-WETHe": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x7c05d54fc5CB6e4Ad87c6f5db3b807C94bB89c52",
+        "pid": 8,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-WETHe": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0xD3C14566bbA068Ec07F8cC768eC65614f71d49Dc",
+        "anchorName": "USDCe"
+      },
+      "PGL-WETHe-PNG": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0x60781c2586d68229fde47564546784ab3faca982"
+        ],
+        "pairAddress": "0xcf35400A595EFCF0Af591D3Aeb5a35cBCD120d54",
+        "anchorName": "WETHe"
+      },
+      "PGL-WAVAX-PNG": {
+        "addresses": [
+          "0x60781c2586d68229fde47564546784ab3faca982",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xd7538cABBf8605BdE1f4901B47B8D42c61DE0367",
+        "pid": 0,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-PNG": {
+        "addresses": [
+          "0x60781c2586d68229fde47564546784ab3faca982",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0xC33Ac18900b2f63DFb60B554B1F53Cd5b474d4cd",
+        "pid": 1,
+        "anchorName": "USDCe"
+      },
+      "PGL-WETHe-USDTe": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0xc7198437980c041c805a1edcba50c1ce5db95118"
+        ],
+        "pairAddress": "0xaE194A23a503793498D76769114e7c13350789a0",
+        "anchorName": "WETHe"
+      },
+      "PGL-WAVAX-USDTe": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xc7198437980c041c805a1edcba50c1ce5db95118"
+        ],
+        "pairAddress": "0xe28984e1EE8D431346D32BeC9Ec800Efb643eef4",
+        "pid": 7,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-USDTe": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xc7198437980c041c805a1edcba50c1ce5db95118"
+        ],
+        "pairAddress": "0xc13E562d92F7527c4389Cd29C67DaBb0667863eA",
+        "pid": 2,
+        "anchorName": "USDCe"
+      },
+      "PGL-WETHe-YAK": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0x59414b3089ce2af0010e7523dea7e2b35d776ec7"
+        ],
+        "anchorName": "WETHe"
+      },
+      "PGL-WAVAX-YAK": {
+        "addresses": [
+          "0x59414b3089ce2af0010e7523dea7e2b35d776ec7",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xd2F01cd87A43962fD93C21e07c1a420714Cc94C9",
+        "pid": 15,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-YAK": {
+        "addresses": [
+          "0x59414b3089ce2af0010e7523dea7e2b35d776ec7",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "PGL-WETHe-QI": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0x8729438eb15e2c8b576fcc6aecda6a148776c0f5"
+        ],
+        "pairAddress": "0x9A48973CfB5C04308b4FEc1D7340dCa0949E4E93",
+        "anchorName": "WETHe"
+      },
+      "PGL-WAVAX-QI": {
+        "addresses": [
+          "0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xE530dC2095Ef5653205CF5ea79F8979a7028065c",
+        "pid": 19,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-QI": {
+        "addresses": [
+          "0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "PGL-WETHe-JOE": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0x6e84a6216ea6dacc71ee8e6b0a5b7322eebc0fdd"
+        ],
+        "anchorName": "WETHe"
+      },
+      "PGL-WAVAX-JOE": {
+        "addresses": [
+          "0x6e84a6216ea6dacc71ee8e6b0a5b7322eebc0fdd",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x134Ad631337E8Bf7E01bA641fB650070a2e0efa8",
+        "pid": 14,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-JOE": {
+        "addresses": [
+          "0x6e84a6216ea6dacc71ee8e6b0a5b7322eebc0fdd",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0xF77F6Ba8D910e937598110c92A0599E19446BC74",
+        "anchorName": "USDCe"
+      },
+      "PGL-WETHe-USDCe": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0xD3C14566bbA068Ec07F8cC768eC65614f71d49Dc",
+        "anchorName": "WETHe"
+      },
+      "PGL-WAVAX-USDCe": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xbd918Ed441767fe7924e99F6a0E0B568ac1970D9",
+        "pid": 9,
+        "anchorName": "WAVAX"
+      },
+      "PGL-WETHe-USDC": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"
+        ],
+        "anchorName": "WETHe"
+      },
+      "PGL-WAVAX-USDC": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"
+        ],
+        "pairAddress": "0x0e0100Ab771E9288e0Aa97e11557E6654C3a9665",
+        "pid": 55,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-USDC": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"
+        ],
+        "pairAddress": "0x8a9c36BC3CEd5ECce703A4dA8032218Dfe72fE86",
+        "pid": 54,
+        "anchorName": "USDCe"
+      },
+      "PGL-WETHe-DAIe": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0xd586e7f844cea2f87f50152665bcbc2c279d8d70"
+        ],
+        "anchorName": "WETHe"
+      },
+      "PGL-WAVAX-DAIe": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xd586e7f844cea2f87f50152665bcbc2c279d8d70"
+        ],
+        "pairAddress": "0xbA09679Ab223C6bdaf44D45Ba2d7279959289AB0",
+        "pid": 6,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-DAIe": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xd586e7f844cea2f87f50152665bcbc2c279d8d70"
+        ],
+        "pairAddress": "0x221Caccd55F16B5176e14C0e9DBaF9C6807c83c9",
+        "pid": 11,
+        "anchorName": "USDCe"
+      },
+      "PGL-WETHe-WBTCe": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0x50b7545627a5162f82a992c33b87adc75187b218"
+        ],
+        "pairAddress": "0x05cbBcf65407Aa8741b51e4eDa8d378497030e62",
+        "anchorName": "WETHe"
+      },
+      "PGL-WAVAX-WBTCe": {
+        "addresses": [
+          "0x50b7545627a5162f82a992c33b87adc75187b218",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x5764b8D8039C6E32f1e5d8DE8Da05DdF974EF5D3",
+        "pid": 5,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-WBTCe": {
+        "addresses": [
+          "0x50b7545627a5162f82a992c33b87adc75187b218",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0x2D8d5a8d1F82B28A6f50674802E39E7bDad466A4",
+        "anchorName": "USDCe"
+      },
+      "PGL-WETHe-MAXI": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0x7c08413cbf02202a1c13643db173f2694e0f73f0"
+        ],
+        "anchorName": "WETHe"
+      },
+      "PGL-WAVAX-MAXI": {
+        "addresses": [
+          "0x7c08413cbf02202a1c13643db173f2694e0f73f0",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xbb700450811a30c5ee0dB80925Cf1BA53dBBd60A",
+        "pid": 42,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-MAXI": {
+        "addresses": [
+          "0x7c08413cbf02202a1c13643db173f2694e0f73f0",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "PGL-WETHe-wsMAXI": {
+        "addresses": [
+          "0x2148d1b21faa7eb251789a51b404fc063ca6aad6",
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab"
+        ],
+        "anchorName": "WETHe"
+      },
+      "PGL-WAVAX-wsMAXI": {
+        "addresses": [
+          "0x2148d1b21faa7eb251789a51b404fc063ca6aad6",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-wsMAXI": {
+        "addresses": [
+          "0x2148d1b21faa7eb251789a51b404fc063ca6aad6",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "PGL-WETHe-xJOE": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0x57319d41f71e81f3c65f2a47ca4e001ebafd4f33"
+        ],
+        "anchorName": "WETHe"
+      },
+      "PGL-WAVAX-xJOE": {
+        "addresses": [
+          "0x57319d41f71e81f3c65f2a47ca4e001ebafd4f33",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xAD8a780fa612976306F1968067aBb52409Af480c",
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-xJOE": {
+        "addresses": [
+          "0x57319d41f71e81f3c65f2a47ca4e001ebafd4f33",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "PGL-WETHe-PTP": {
+        "addresses": [
+          "0x22d4002028f537599be9f666d1c4fa138522f9c8",
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab"
+        ],
+        "anchorName": "WETHe"
+      },
+      "PGL-WAVAX-PTP": {
+        "addresses": [
+          "0x22d4002028f537599be9f666d1c4fa138522f9c8",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xa7A175A26bbCB1eacA6FF5318022e27e1DF46fce",
+        "pid": 58,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-PTP": {
+        "addresses": [
+          "0x22d4002028f537599be9f666d1c4fa138522f9c8",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "PGL-WETHe-JPL-WAVAX-JOE": {
+        "addresses": [
+          "0x454e67025631c065d3cfad6d71e6892f74487a15",
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab"
+        ],
+        "anchorName": "WETHe"
+      },
+      "PGL-WAVAX-JPL-WAVAX-JOE": {
+        "addresses": [
+          "0x454e67025631c065d3cfad6d71e6892f74487a15",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-JPL-WAVAX-JOE": {
+        "addresses": [
+          "0x454e67025631c065d3cfad6d71e6892f74487a15",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "PGL-WETHe-sAVAX": {
+        "addresses": [
+          "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab"
+        ],
+        "anchorName": "WETHe"
+      },
+      "PGL-WAVAX-sAVAX": {
+        "addresses": [
+          "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x4E9A38F05c38106C1cf5c145Df24959ec50ff70D",
+        "pid": 90,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-sAVAX": {
+        "addresses": [
+          "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "PGL-WETHe-JPL-WAVAX-PTP": {
+        "addresses": [
+          "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+          "0xcdfd91eea657cc2701117fe9711c9a4f61feed23"
+        ],
+        "anchorName": "WETHe"
+      },
+      "PGL-WAVAX-JPL-WAVAX-PTP": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xcdfd91eea657cc2701117fe9711c9a4f61feed23"
+        ],
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-JPL-WAVAX-PTP": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xcdfd91eea657cc2701117fe9711c9a4f61feed23"
+        ],
+        "anchorName": "USDCe"
+      }
+    }
+  },
+  "43114": {
+    "JPL": {
+      "JPL-USDCe-WAVAX": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xA389f9430876455C36478DeEa9769B7Ca4E3DDB1",
+        "pid": 39,
+        "anchorName": "USDCe"
+      },
+      "JPL-WAVAX-PNG": {
+        "addresses": [
+          "0x60781c2586d68229fde47564546784ab3faca982",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x3dAF1C6268362214eBB064647555438c6f365F96",
+        "pid": 6,
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-PNG": {
+        "addresses": [
+          "0x60781c2586d68229fde47564546784ab3faca982",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "JPL-WAVAX-USDTe": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xc7198437980c041c805a1edcba50c1ce5db95118"
+        ],
+        "pairAddress": "0xeD8CBD9F0cE3C6986b22002F03c6475CEb7a6256",
+        "pid": 28,
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-USDTe": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xc7198437980c041c805a1edcba50c1ce5db95118"
+        ],
+        "pairAddress": "0x2E02539203256c83c7a9F6fA6f8608A32A2b1Ca2",
+        "pid": 49,
+        "anchorName": "USDCe"
+      },
+      "JPL-WAVAX-YAK": {
+        "addresses": [
+          "0x59414b3089ce2af0010e7523dea7e2b35d776ec7",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xb5c9e891AF3063004a441BA4FaB4cA3D6DEb5626",
+        "pid": 25,
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-YAK": {
+        "addresses": [
+          "0x59414b3089ce2af0010e7523dea7e2b35d776ec7",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0xc2Ea99c031B05aE03044C857c78afb5671deE96B",
+        "anchorName": "USDCe"
+      },
+      "JPL-WAVAX-QI": {
+        "addresses": [
+          "0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x2774516897AC629aD3ED9dCac7e375Dda78412b9",
+        "pid": 41,
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-QI": {
+        "addresses": [
+          "0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0x2c2bd72D957Eb58a9899fcb90305cDE5ea619b16",
+        "anchorName": "USDCe"
+      },
+      "JPL-WAVAX-JOE": {
+        "addresses": [
+          "0x6e84a6216ea6dacc71ee8e6b0a5b7322eebc0fdd",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x454E67025631C065d3cFAD6d71E6892f74487a15",
+        "pid": 0,
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-JOE": {
+        "addresses": [
+          "0x6e84a6216ea6dacc71ee8e6b0a5b7322eebc0fdd",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0x67926d973cD8eE876aD210fAaf7DFfA99E414aCf",
+        "pid": 58,
+        "anchorName": "USDCe"
+      },
+      "JPL-WAVAX-USDCe": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xA389f9430876455C36478DeEa9769B7Ca4E3DDB1",
+        "pid": 39,
+        "anchorName": "WAVAX"
+      },
+      "JPL-WAVAX-USDC": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"
+        ],
+        "pairAddress": "0xf4003F4efBE8691B60249E6afbD307aBE7758adb",
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-USDC": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"
+        ],
+        "pairAddress": "0x2A8A315e82F85D1f0658C5D66A452Bbdd9356783",
+        "anchorName": "USDCe"
+      },
+      "JPL-WAVAX-DAIe": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xd586e7f844cea2f87f50152665bcbc2c279d8d70"
+        ],
+        "pairAddress": "0x87Dee1cC9FFd464B79e058ba20387c1984aed86a",
+        "pid": 37,
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-DAIe": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xd586e7f844cea2f87f50152665bcbc2c279d8d70"
+        ],
+        "pairAddress": "0x63ABE32d0Ee76C05a11838722A63e012008416E6",
+        "pid": 40,
+        "anchorName": "USDCe"
+      },
+      "JPL-WAVAX-WBTCe": {
+        "addresses": [
+          "0x50b7545627a5162f82a992c33b87adc75187b218",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xd5a37dC5C9A396A03dd1136Fc76A1a02B1c88Ffa",
+        "pid": 27,
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-WBTCe": {
+        "addresses": [
+          "0x50b7545627a5162f82a992c33b87adc75187b218",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0x62475f52aDd016A06B398aA3b2C2f2E540d36859",
+        "pid": 54,
+        "anchorName": "USDCe"
+      },
+      "JPL-WAVAX-MAXI": {
+        "addresses": [
+          "0x7c08413cbf02202a1c13643db173f2694e0f73f0",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x5B81bac8281f8939ee130157065807703bfAe36F",
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-MAXI": {
+        "addresses": [
+          "0x7c08413cbf02202a1c13643db173f2694e0f73f0",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "JPL-WAVAX-wsMAXI": {
+        "addresses": [
+          "0x2148d1b21faa7eb251789a51b404fc063ca6aad6",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-wsMAXI": {
+        "addresses": [
+          "0x2148d1b21faa7eb251789a51b404fc063ca6aad6",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "JPL-WAVAX-xJOE": {
+        "addresses": [
+          "0x57319d41f71e81f3c65f2a47ca4e001ebafd4f33",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x798C7E8455351472c735794477F6769adD7e7593",
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-xJOE": {
+        "addresses": [
+          "0x57319d41f71e81f3c65f2a47ca4e001ebafd4f33",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "JPL-WAVAX-PTP": {
+        "addresses": [
+          "0x22d4002028f537599be9f666d1c4fa138522f9c8",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xCDFD91eEa657cc2701117fe9711C9a4F61FEED23",
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-PTP": {
+        "addresses": [
+          "0x22d4002028f537599be9f666d1c4fa138522f9c8",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0x69680784b6eAd830b53C7a5e937562E145a285f4",
+        "anchorName": "USDCe"
+      },
+      "JPL-WAVAX-JPL-WAVAX-JOE": {
+        "addresses": [
+          "0x454e67025631c065d3cfad6d71e6892f74487a15",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x883b90Ef225B255E416405c5Dd9214D7Cdb09908",
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-JPL-WAVAX-JOE": {
+        "addresses": [
+          "0x454e67025631c065d3cfad6d71e6892f74487a15",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "JPL-WAVAX-JPL-WAVAX-USDCe": {
+        "addresses": [
+          "0xa389f9430876455c36478deea9769b7ca4e3ddb1",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xaBcaf38D69ed51B0861eE24a7585EeFb09276f96",
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-JPL-WAVAX-USDCe": {
+        "addresses": [
+          "0xa389f9430876455c36478deea9769b7ca4e3ddb1",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "JPL-WAVAX-JPL-WAVAX-USDTe": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xed8cbd9f0ce3c6986b22002f03c6475ceb7a6256"
+        ],
+        "pairAddress": "0x1A08598d4d1a25DC97221B98047D8520D3CdB9da",
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-JPL-WAVAX-USDTe": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xed8cbd9f0ce3c6986b22002f03c6475ceb7a6256"
+        ],
+        "anchorName": "USDCe"
+      },
+      "JPL-WAVAX-JPL-WAVAX-WBTCe": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xd5a37dc5c9a396a03dd1136fc76a1a02b1c88ffa"
+        ],
+        "pairAddress": "0xD1960Ab9018E5bF7A127Ed9276101395c7F1529e",
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-JPL-WAVAX-WBTCe": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xd5a37dc5c9a396a03dd1136fc76a1a02b1c88ffa"
+        ],
+        "anchorName": "USDCe"
+      },
+      "JPL-WAVAX-sAVAX": {
+        "addresses": [
+          "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d",
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-sAVAX": {
+        "addresses": [
+          "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0xA7f38AEd6bfE22954921FD19437C2527a3B32Cc0",
+        "anchorName": "USDCe"
+      },
+      "JPL-WAVAX-JPL-WAVAX-PTP": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xcdfd91eea657cc2701117fe9711c9a4f61feed23"
+        ],
+        "anchorName": "WAVAX"
+      },
+      "JPL-USDCe-JPL-WAVAX-PTP": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xcdfd91eea657cc2701117fe9711c9a4f61feed23"
+        ],
+        "anchorName": "USDCe"
+      }
+    },
+    "PGL": {
+      "PGL-USDCe-WAVAX": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xbd918Ed441767fe7924e99F6a0E0B568ac1970D9",
+        "pid": 9,
+        "anchorName": "USDCe"
+      },
+      "PGL-WAVAX-PNG": {
+        "addresses": [
+          "0x60781c2586d68229fde47564546784ab3faca982",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xd7538cABBf8605BdE1f4901B47B8D42c61DE0367",
+        "pid": 0,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-PNG": {
+        "addresses": [
+          "0x60781c2586d68229fde47564546784ab3faca982",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0xC33Ac18900b2f63DFb60B554B1F53Cd5b474d4cd",
+        "pid": 1,
+        "anchorName": "USDCe"
+      },
+      "PGL-WAVAX-USDTe": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xc7198437980c041c805a1edcba50c1ce5db95118"
+        ],
+        "pairAddress": "0xe28984e1EE8D431346D32BeC9Ec800Efb643eef4",
+        "pid": 7,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-USDTe": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xc7198437980c041c805a1edcba50c1ce5db95118"
+        ],
+        "pairAddress": "0xc13E562d92F7527c4389Cd29C67DaBb0667863eA",
+        "pid": 2,
+        "anchorName": "USDCe"
+      },
+      "PGL-WAVAX-YAK": {
+        "addresses": [
+          "0x59414b3089ce2af0010e7523dea7e2b35d776ec7",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xd2F01cd87A43962fD93C21e07c1a420714Cc94C9",
+        "pid": 15,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-YAK": {
+        "addresses": [
+          "0x59414b3089ce2af0010e7523dea7e2b35d776ec7",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "PGL-WAVAX-QI": {
+        "addresses": [
+          "0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xE530dC2095Ef5653205CF5ea79F8979a7028065c",
+        "pid": 19,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-QI": {
+        "addresses": [
+          "0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "PGL-WAVAX-JOE": {
+        "addresses": [
+          "0x6e84a6216ea6dacc71ee8e6b0a5b7322eebc0fdd",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x134Ad631337E8Bf7E01bA641fB650070a2e0efa8",
+        "pid": 14,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-JOE": {
+        "addresses": [
+          "0x6e84a6216ea6dacc71ee8e6b0a5b7322eebc0fdd",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0xF77F6Ba8D910e937598110c92A0599E19446BC74",
+        "anchorName": "USDCe"
+      },
+      "PGL-WAVAX-USDCe": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xbd918Ed441767fe7924e99F6a0E0B568ac1970D9",
+        "pid": 9,
+        "anchorName": "WAVAX"
+      },
+      "PGL-WAVAX-USDC": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"
+        ],
+        "pairAddress": "0x0e0100Ab771E9288e0Aa97e11557E6654C3a9665",
+        "pid": 55,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-USDC": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"
+        ],
+        "pairAddress": "0x8a9c36BC3CEd5ECce703A4dA8032218Dfe72fE86",
+        "pid": 54,
+        "anchorName": "USDCe"
+      },
+      "PGL-WAVAX-DAIe": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xd586e7f844cea2f87f50152665bcbc2c279d8d70"
+        ],
+        "pairAddress": "0xbA09679Ab223C6bdaf44D45Ba2d7279959289AB0",
+        "pid": 6,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-DAIe": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xd586e7f844cea2f87f50152665bcbc2c279d8d70"
+        ],
+        "pairAddress": "0x221Caccd55F16B5176e14C0e9DBaF9C6807c83c9",
+        "pid": 11,
+        "anchorName": "USDCe"
+      },
+      "PGL-WAVAX-WBTCe": {
+        "addresses": [
+          "0x50b7545627a5162f82a992c33b87adc75187b218",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x5764b8D8039C6E32f1e5d8DE8Da05DdF974EF5D3",
+        "pid": 5,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-WBTCe": {
+        "addresses": [
+          "0x50b7545627a5162f82a992c33b87adc75187b218",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "pairAddress": "0x2D8d5a8d1F82B28A6f50674802E39E7bDad466A4",
+        "anchorName": "USDCe"
+      },
+      "PGL-WAVAX-MAXI": {
+        "addresses": [
+          "0x7c08413cbf02202a1c13643db173f2694e0f73f0",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xbb700450811a30c5ee0dB80925Cf1BA53dBBd60A",
+        "pid": 42,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-MAXI": {
+        "addresses": [
+          "0x7c08413cbf02202a1c13643db173f2694e0f73f0",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "PGL-WAVAX-wsMAXI": {
+        "addresses": [
+          "0x2148d1b21faa7eb251789a51b404fc063ca6aad6",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-wsMAXI": {
+        "addresses": [
+          "0x2148d1b21faa7eb251789a51b404fc063ca6aad6",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "PGL-WAVAX-xJOE": {
+        "addresses": [
+          "0x57319d41f71e81f3c65f2a47ca4e001ebafd4f33",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xAD8a780fa612976306F1968067aBb52409Af480c",
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-xJOE": {
+        "addresses": [
+          "0x57319d41f71e81f3c65f2a47ca4e001ebafd4f33",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "PGL-WAVAX-PTP": {
+        "addresses": [
+          "0x22d4002028f537599be9f666d1c4fa138522f9c8",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0xa7A175A26bbCB1eacA6FF5318022e27e1DF46fce",
+        "pid": 58,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-PTP": {
+        "addresses": [
+          "0x22d4002028f537599be9f666d1c4fa138522f9c8",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "PGL-WAVAX-JPL-WAVAX-JOE": {
+        "addresses": [
+          "0x454e67025631c065d3cfad6d71e6892f74487a15",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-JPL-WAVAX-JOE": {
+        "addresses": [
+          "0x454e67025631c065d3cfad6d71e6892f74487a15",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "PGL-WAVAX-JPL-WAVAX-USDCe": {
+        "addresses": [
+          "0xa389f9430876455c36478deea9769b7ca4e3ddb1",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-JPL-WAVAX-USDCe": {
+        "addresses": [
+          "0xa389f9430876455c36478deea9769b7ca4e3ddb1",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "PGL-WAVAX-JPL-WAVAX-USDTe": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xed8cbd9f0ce3c6986b22002f03c6475ceb7a6256"
+        ],
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-JPL-WAVAX-USDTe": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xed8cbd9f0ce3c6986b22002f03c6475ceb7a6256"
+        ],
+        "anchorName": "USDCe"
+      },
+      "PGL-WAVAX-JPL-WAVAX-WBTCe": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xd5a37dc5c9a396a03dd1136fc76a1a02b1c88ffa"
+        ],
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-JPL-WAVAX-WBTCe": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xd5a37dc5c9a396a03dd1136fc76a1a02b1c88ffa"
+        ],
+        "anchorName": "USDCe"
+      },
+      "PGL-WAVAX-sAVAX": {
+        "addresses": [
+          "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pairAddress": "0x4E9A38F05c38106C1cf5c145Df24959ec50ff70D",
+        "pid": 90,
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-sAVAX": {
+        "addresses": [
+          "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664"
+        ],
+        "anchorName": "USDCe"
+      },
+      "PGL-WAVAX-JPL-WAVAX-PTP": {
+        "addresses": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0xcdfd91eea657cc2701117fe9711c9a4f61feed23"
+        ],
+        "anchorName": "WAVAX"
+      },
+      "PGL-USDCe-JPL-WAVAX-PTP": {
+        "addresses": [
+          "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+          "0xcdfd91eea657cc2701117fe9711c9a4f61feed23"
+        ],
+        "anchorName": "USDCe"
+      }
+    }
+  }
+}

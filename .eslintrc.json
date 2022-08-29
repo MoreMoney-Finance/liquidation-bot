@@ -1,0 +1,59 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      // Allows for the parsing of JSX
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "import"
+  ],
+  "ignorePatterns": [
+    "node_modules/**/*"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "rules": {
+    "indent": [
+      "warn",
+      2
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    // Not a good thing, we should get rid of this and use any only as a last resort
+    "@typescript-eslint/no-explicit-any": "off",
+    // Can break code with auto-fix option, we are checking it separately (see package.json lint script)
+    "react-hooks/exhaustive-deps": 0,
+    "no-console": [
+      0,
+      {
+        "allow": [
+          "error"
+        ]
+      }
+    ],
+    "no-alert": 0,
+    "no-debugger": 2,
+    "import/no-extraneous-dependencies": [
+      2,
+      {
+        "devDependencies": false
+      }
+    ],
+    // I believe we should remove this too
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "react/prop-types": 0,
+    "@typescript-eslint/no-non-null-assertion": 0,
+    "@typescript-eslint/no-unused-vars": "error"
+  }
+}
