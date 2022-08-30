@@ -5,6 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "ts-node src/index.ts",
+    "start2": "ts-node src/index-v2.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
