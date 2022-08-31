@@ -13,10 +13,10 @@ import StrategyRegistry from './contracts/contracts/StrategyRegistry.sol/Strateg
 import IStrategy from './contracts/interfaces/IStrategy.sol/IStrategy.json';
 import { loadKey } from './utils/load-key';
 import axios from 'axios';
-import { parseEther } from '@ethersproject/units';
+import { formatUnits, parseEther, parseUnits } from '@ethersproject/units';
 import { Interface } from 'ethers/lib/utils';
 
-export function calcLiqPriceFromNum(
+export function calcLiquidationPrice(
   borrowablePercent: number,
   debtNum: number,
   colNum: number
@@ -26,34 +26,6 @@ export function calcLiqPriceFromNum(
   } else {
     return 0;
   }
-}
-
-export function parsePositionMeta(row: any, trancheContract: string) {
-  const debt = row.debt;
-  const posYield = row.yield;
-  const collateral = row.collateral;
-
-  const borrowablePercent = row.borrowablePer10k.toNumber() / 100;
-
-  return {
-    trancheContract,
-    trancheId: row.trancheId.toNumber(),
-    strategy: row.strategy,
-    debt,
-    collateral,
-    yield: posYield,
-    token: row.token,
-    collateralValue: row.collateralValue,
-    borrowablePercent,
-    owner: row.owner,
-    liquidationPrice: debt.gt(posYield)
-      ? calcLiqPriceFromNum(
-          borrowablePercent,
-          debt.sub(posYield),
-          parseFloat(ethers.utils.formatEther(collateral!))
-        )
-      : 0,
-  };
 }
 
 async function run(): Promise<void> {
@@ -72,12 +44,6 @@ async function run(): Promise<void> {
     ['0xF7D9281e8e363584973F946201b82ba72C965D27']:
       curAddresses.SimpleHoldingStrategy,
   };
-
-  // const masterChef2Tokens = [
-  //   '0x57319d41f71e81f3c65f2a47ca4e001ebafd4f33',
-  //   '0xa389f9430876455c36478deea9769b7ca4e3ddb1',
-  //   '0xed8cbd9f0ce3c6986b22002f03c6475ceb7a6256',
-  // ].map(getAddress);
 
   const tokens = Object.keys(token2Strat);
   const strats = Object.values(token2Strat);
@@ -138,7 +104,33 @@ async function run(): Promise<void> {
       'https://raw.githubusercontent.com/MoreMoney-Finance/craptastic-api/main/src/v2-updated-positions.json'
     )
   ).data;
+  function parsePositionMeta(row: any, trancheContract: string) {
+    const debt = row.debt;
+    const posYield = row.yield;
+    const collateral = formatUnits(row.collateral, tokenDecimals[row.token]);
 
+    const borrowablePercent = row.borrowablePer10k.toNumber() / 100;
+
+    return {
+      trancheContract,
+      trancheId: row.trancheId.toNumber(),
+      strategy: row.strategy,
+      debt,
+      collateral,
+      yield: posYield,
+      token: row.token,
+      collateralValue: row.collateralValue,
+      borrowablePercent,
+      owner: row.owner,
+      liquidationPrice: debt.gt(posYield)
+        ? calcLiquidationPrice(
+            borrowablePercent,
+            parseFloat(ethers.utils.formatEther(debt.sub(posYield))),
+            parseFloat(collateral!)
+          )
+        : 0,
+    };
+  }
   const parsedCachePositions = Object.values(cachedPositions.positions)
     .map((pos: any) => ({
       trancheId: BigNumber.from(pos.trancheId),
@@ -221,17 +213,16 @@ async function run(): Promise<void> {
         parseFloat(ethers.utils.formatEther(tokenValuePer1e18[posMeta.token])) /
         10 ** (18 - tokenDecimals[posMeta.token]);
 
-      const collateralVal =
-        parseFloat(ethers.utils.formatEther(posMeta.collateral)) * tokenPrice;
+      const collateralVal = posMeta.collateral * tokenPrice;
 
       const totalPercentage =
-        parseFloat(ethers.utils.formatEther(posMeta.collateral)) > 0 &&
-        tokenPrice > 0
+        posMeta.collateral > 0 && tokenPrice > 0
           ? (100 * parseFloat(ethers.utils.formatEther(posMeta.debt))) /
             collateralVal
           : 0;
 
       const liquidatableZone = posMeta.borrowablePercent;
+
       return (
         1.25 * posMeta.liquidationPrice > tokenPrice &&
         totalPercentage > liquidatableZone &&
@@ -239,7 +230,11 @@ async function run(): Promise<void> {
       );
     }
   );
-  console.log('liquidatablePositions', liquidatablePositions);
+  console.log(
+    'liquidatablePositions',
+    liquidatablePositions,
+    liquidatablePositions.length
+  );
 }
 
 run();
