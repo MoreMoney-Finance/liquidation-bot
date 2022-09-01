@@ -30,6 +30,8 @@ export function calcLiquidationPrice(
 }
 
 async function run(): Promise<void> {
+  // diff of 5%
+  const priceDiffPercentage = 1.05;
   const curAddresses = addresses['43114'];
   const { signer } = loadKey();
 
