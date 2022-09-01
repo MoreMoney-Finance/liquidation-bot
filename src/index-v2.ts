@@ -15,6 +15,7 @@ import { loadKey } from './utils/load-key';
 import axios from 'axios';
 import { formatUnits, parseEther, parseUnits } from '@ethersproject/units';
 import { Interface } from 'ethers/lib/utils';
+import { getCoingeckoPrice, getOraclePrice, getTokenPrice } from './coingecko';
 
 export function calcLiquidationPrice(
   borrowablePercent: number,
@@ -98,6 +99,23 @@ async function run(): Promise<void> {
       tokenValuePer1e18[normalResult.token] = normalResult.valuePer1e18;
     })
   );
+
+  const keys = Object.keys(tokenDecimals);
+  let coingeckoPrices: Record<string, number> = {};
+  let oraclePrices: Record<string, number> = {};
+
+  for (let index = 0; index < keys.length; index++) {
+    const token = keys[index];
+    const amount = parseUnits('1', tokenDecimals[token]);
+    const price = await getTokenPrice(token, amount);
+    const oraclePrice = await getOraclePrice(token, amount);
+    coingeckoPrices[token] = price;
+    oraclePrices[token] = parseFloat(ethers.utils.formatEther(oraclePrice));
+  }
+
+  console.log(coingeckoPrices);
+  console.log(oraclePrices);
+
   // get cache positions
   const cachedPositions = (
     await axios.get(
@@ -209,9 +227,10 @@ async function run(): Promise<void> {
 
   const liquidatablePositions = Array.from(parsedPositions.values()).filter(
     (posMeta) => {
-      const tokenPrice =
-        parseFloat(ethers.utils.formatEther(tokenValuePer1e18[posMeta.token])) /
-        10 ** (18 - tokenDecimals[posMeta.token]);
+      // const tokenPrice =
+      //   parseFloat(ethers.utils.formatEther(tokenValuePer1e18[posMeta.token])) /
+      //   10 ** (18 - tokenDecimals[posMeta.token]);
+      const tokenPrice = coingeckoPrices[posMeta.token];
 
       const collateralVal = posMeta.collateral * tokenPrice;
 
