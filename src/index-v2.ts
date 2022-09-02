@@ -264,7 +264,8 @@ async function run(): Promise<void> {
       return (
         1.25 * posMeta.liquidationPrice > tokenPrice &&
         totalPercentage > liquidatableZone &&
-        posMeta.debt.gt(dollar)
+        posMeta.debt.gt(dollar) &&
+        posMeta.trancheId !== 400000005
       );
     }
   );
