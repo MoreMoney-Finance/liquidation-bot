@@ -137,7 +137,10 @@ async function run(): Promise<void> {
   function parsePositionMeta(row: any, trancheContract: string) {
     const debt = row.debt;
     const posYield = row.yield;
-    const collateral = formatUnits(row.collateral, tokenDecimals[row.token]);
+    const collateralParsed = formatUnits(
+      row.collateral,
+      tokenDecimals[row.token]
+    );
 
     const borrowablePercent = row.borrowablePer10k.toNumber() / 100;
 
@@ -146,7 +149,8 @@ async function run(): Promise<void> {
       trancheId: row.trancheId.toNumber(),
       strategy: row.strategy,
       debt,
-      collateral,
+      collateral: row.collateral,
+      collateralParsed,
       yield: posYield,
       token: row.token,
       collateralValue: row.collateralValue,
@@ -156,7 +160,7 @@ async function run(): Promise<void> {
         ? calcLiquidationPrice(
             borrowablePercent,
             parseFloat(ethers.utils.formatEther(debt.sub(posYield))),
-            parseFloat(collateral!)
+            parseFloat(collateralParsed!)
           )
         : 0,
     };
@@ -166,6 +170,7 @@ async function run(): Promise<void> {
       trancheId: BigNumber.from(pos.trancheId),
       strategy: pos.strategy,
       collateral: BigNumber.from(pos.collateral),
+      collateralParsed: pos.collateral,
       debt: parseEther(pos.debt.toString()),
       token: pos.token,
       collateralValue: parseEther(pos.collateralValue.toString()),
@@ -246,10 +251,10 @@ async function run(): Promise<void> {
       //   10 ** (18 - tokenDecimals[posMeta.token]);
       const tokenPrice = coingeckoPrices[posMeta.token];
 
-      const collateralVal = posMeta.collateral * tokenPrice;
+      const collateralVal = parseFloat(posMeta.collateralParsed) * tokenPrice;
 
       const totalPercentage =
-        posMeta.collateral > 0 && tokenPrice > 0
+        parseFloat(posMeta.collateralParsed) > 0 && tokenPrice > 0
           ? (100 * parseFloat(ethers.utils.formatEther(posMeta.debt))) /
             collateralVal
           : 0;

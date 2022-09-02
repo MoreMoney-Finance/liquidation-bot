@@ -70,6 +70,7 @@ export async function primitiveLiquidate({
 }) {
   const lendingAddress = curAddresses.StableLending2Liquidation;
   const extantCollateral = collateral!;
+  console.log('collateralValue', formatEther(collateralValue));
   const extantCollateralValue = collateralValue;
   const account = signer.address;
   const moneyContract = new ethers.Contract(
