@@ -74,5 +74,7 @@ export async function getAmountInPeg(token: string, amount: BigNumber) {
     ],
     signer
   );
-  return await contract.getAmountInPeg(token, amount, moneyToken);
+  return await (
+    await contract.getAmountInPeg(token, amount, moneyToken)
+  ).wait();
 }

@@ -3,6 +3,7 @@ import { BigNumber, ethers } from 'ethers';
 import StableLending2Liquidation from './contracts/artifacts/contracts/liquidation/StableLending2Liquidation.sol/StableLending2Liquidation.json';
 import { loadKey } from './utils/load-key';
 import addresses from './contracts/addresses.json';
+import { moneyToken } from './utils/constants';
 
 const curAddresses = addresses['43114'];
 
@@ -41,7 +42,8 @@ async function sendLiquidation({
   const lendingAddress = curAddresses.StableLending2Liquidation;
   const liquidationContract = new ethers.Contract(
     lendingAddress,
-    StableLending2Liquidation.abi
+    StableLending2Liquidation.abi,
+    signer
   );
   return await liquidationContract.liquidate(
     trancheId,
@@ -70,6 +72,21 @@ export async function primitiveLiquidate({
   const extantCollateral = collateral!;
   const extantCollateralValue = collateralValue;
   const account = signer.address;
+  const moneyContract = new ethers.Contract(
+    moneyToken,
+    [
+      {
+        inputs: [{ internalType: 'address', name: 'account', type: 'address' }],
+        name: 'balanceOf',
+        outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+        stateMutability: 'view',
+        type: 'function',
+      },
+    ],
+    signer
+  );
+
+  const moneyBalance = await moneyContract.balanceOf(signer.address);
 
   const ltvPer10k = borrowablePercent * 100;
 
@@ -83,12 +100,16 @@ export async function primitiveLiquidate({
       debt.toString(),
       account!
     );
-    sendLiquidation({
-      trancheId,
-      collateralRequested: extantCollateral,
-      rebalancingBid: debt,
-      recipient: account!,
-    });
+    if (moneyBalance.gt(debt)) {
+      sendLiquidation({
+        trancheId,
+        collateralRequested: extantCollateral,
+        rebalancingBid: debt,
+        recipient: account!,
+      });
+    } else {
+      console.log('insufficient MONEY balance');
+    }
   } else {
     const requestedColVal = debt
       .add(
@@ -117,11 +138,16 @@ export async function primitiveLiquidate({
     //   formatUnits(collateralRequested, token.decimals),
     //   formatEther(rebalancingBid)
     // );
-    sendLiquidation({
-      trancheId,
-      collateralRequested,
-      rebalancingBid,
-      recipient: account!,
-    });
+
+    if (moneyBalance.gt(rebalancingBid)) {
+      sendLiquidation({
+        trancheId,
+        collateralRequested,
+        rebalancingBid,
+        recipient: account!,
+      });
+    } else {
+      console.log('insufficient MONEY balance');
+    }
   }
 }

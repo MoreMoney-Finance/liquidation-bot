@@ -15,7 +15,13 @@ import { loadKey } from './utils/load-key';
 import axios from 'axios';
 import { formatUnits, parseEther, parseUnits } from '@ethersproject/units';
 import { Interface } from 'ethers/lib/utils';
-import { getCoingeckoPrice, getOraclePrice, getTokenPrice } from './coingecko';
+import {
+  getAmountInPeg,
+  getCoingeckoPrice,
+  getOraclePrice,
+  getTokenPrice,
+} from './coingecko';
+import { primitiveLiquidate } from './liquidate';
 
 export function calcLiquidationPrice(
   borrowablePercent: number,
@@ -27,6 +33,26 @@ export function calcLiquidationPrice(
   } else {
     return 0;
   }
+}
+
+async function fetchPrices(tokenDecimals: Record<string, number>) {
+  const keys = Object.keys(tokenDecimals);
+  let coingeckoPrices: Record<string, number> = {};
+  let oraclePrices: Record<string, number> = {};
+
+  for (let index = 0; index < keys.length; index++) {
+    const token = keys[index];
+    const amount = parseUnits('1', tokenDecimals[token]);
+    const price = await getTokenPrice(token, amount);
+    const oraclePrice = await getOraclePrice(token, amount);
+    coingeckoPrices[token] = price;
+    oraclePrices[token] = parseFloat(ethers.utils.formatEther(oraclePrice));
+  }
+
+  console.log(coingeckoPrices);
+  console.log(oraclePrices);
+
+  return { coingeckoPrices, oraclePrices };
 }
 
 async function run(): Promise<void> {
@@ -101,22 +127,6 @@ async function run(): Promise<void> {
       tokenValuePer1e18[normalResult.token] = normalResult.valuePer1e18;
     })
   );
-
-  const keys = Object.keys(tokenDecimals);
-  let coingeckoPrices: Record<string, number> = {};
-  let oraclePrices: Record<string, number> = {};
-
-  for (let index = 0; index < keys.length; index++) {
-    const token = keys[index];
-    const amount = parseUnits('1', tokenDecimals[token]);
-    const price = await getTokenPrice(token, amount);
-    const oraclePrice = await getOraclePrice(token, amount);
-    coingeckoPrices[token] = price;
-    oraclePrices[token] = parseFloat(ethers.utils.formatEther(oraclePrice));
-  }
-
-  console.log(coingeckoPrices);
-  console.log(oraclePrices);
 
   // get cache positions
   const cachedPositions = (
@@ -227,6 +237,8 @@ async function run(): Promise<void> {
   }
   const dollar = parseEther('1');
 
+  const { coingeckoPrices } = await fetchPrices(tokenDecimals);
+
   const liquidatablePositions = Array.from(parsedPositions.values()).filter(
     (posMeta) => {
       // const tokenPrice =
@@ -256,6 +268,35 @@ async function run(): Promise<void> {
     liquidatablePositions,
     liquidatablePositions.length
   );
+
+  if (liquidatablePositions.length > 0) {
+    const { coingeckoPrices: prices, oraclePrices } = await fetchPrices(
+      tokenDecimals
+    );
+
+    // update oracle prices;
+
+    for (let index = 0; index < Object.keys(prices).length; index++) {
+      const token = Object.keys(prices)[index];
+      const priceOnCoingecko = prices[token];
+      const priceOnOracle = oraclePrices[token];
+
+      // if the price diff on oracle is still lower than the price on the coingecko
+      // update the oracle
+      if (priceOnOracle * priceDiffPercentage < priceOnCoingecko) {
+        await getAmountInPeg(token, parseUnits('1', tokenDecimals[token]));
+      }
+    }
+
+    for (let index = 0; index < liquidatablePositions.length; index++) {
+      const position = liquidatablePositions[index];
+      await primitiveLiquidate({
+        ...position,
+        debtParam: position.debt,
+        positionYield: position.yield,
+      });
+    }
+  }
 }
 
 run();
