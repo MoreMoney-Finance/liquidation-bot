@@ -1,96 +1,152 @@
-import { ethers } from 'ethers';
-import * as fs from 'fs';
-import * as path from 'path';
+import { BigNumber, ethers } from 'ethers';
 import addresses from './contracts/addresses.json';
-import AMMYieldConverter from './contracts/contracts/strategies/AMMYieldConverter.sol/AMMYieldConverter.json';
-import MultiAMMYieldConverter from './contracts/contracts/strategies/MultiAMMYieldConverter.sol/MultiAMMYieldConverter.json';
-import Strategy from './contracts/contracts/Strategy.sol/Strategy.json';
-import MultiYieldConversionStrategy from './contracts/contracts/strategies/MultiYieldConversionStrategy.sol/MultiYieldConversionStrategy.json';
-import IsolatedLending from './contracts/contracts/IsolatedLending.sol/IsolatedLending.json';
 import StableLending2 from './contracts/contracts/StableLending2.sol/StableLending2.json';
 import StrategyViewer from './contracts/contracts/StrategyViewer.sol/StrategyViewer.json';
-import StrategyRegistry from './contracts/contracts/StrategyRegistry.sol/StrategyRegistry.json';
-import IStrategy from './contracts/interfaces/IStrategy.sol/IStrategy.json';
 import { loadKey } from './utils/load-key';
+import axios from 'axios';
+import { formatUnits, parseEther, parseUnits } from '@ethersproject/units';
+import { Interface } from 'ethers/lib/utils';
+import { getTokenPrice } from './coingecko';
+import { primitiveLiquidate } from './liquidate';
+import { getAmountInPeg, getOraclePrice } from './oracle';
+import { getTokenDecimalsAndValue1e18 } from './tokens';
+
+export function calcLiquidationPrice(
+  borrowablePercent: number,
+  debtNum: number,
+  colNum: number
+): number {
+  if (colNum > 0) {
+    return (100 * debtNum) / (colNum * borrowablePercent);
+  } else {
+    return 0;
+  }
+}
+
+async function fetchPrices(tokenDecimals: Record<string, number>) {
+  const keys = Object.keys(tokenDecimals);
+  let coingeckoPrices: Record<string, number> = {};
+  let oraclePrices: Record<string, number> = {};
+
+  for (let index = 0; index < keys.length; index++) {
+    const token = keys[index];
+    const amount = parseUnits('1', tokenDecimals[token]);
+    const price = await getTokenPrice(token, amount);
+    const oraclePrice = await getOraclePrice(token, amount);
+    coingeckoPrices[token] = price;
+    oraclePrices[token] = parseFloat(ethers.utils.formatEther(oraclePrice));
+  }
+
+  console.log(coingeckoPrices);
+  console.log(oraclePrices);
+
+  return { coingeckoPrices, oraclePrices };
+}
 
 async function run(): Promise<void> {
+  // diff of 5%
+  const priceDiffPercentage = 1.05;
   const curAddresses = addresses['43114'];
-  const { provider } = loadKey();
+  const { signer } = loadKey();
 
-  //TODO: get timestamp dynamically
-  const timeStart = 1661738061879;
-  const ONE_WEEK_SECONDS = 60 * 60 * 24 * 7;
-  const endPeriod = 1 + Math.round(Date.now() / 1000 / ONE_WEEK_SECONDS);
-  const startPeriod = Math.floor(timeStart / 1000 / ONE_WEEK_SECONDS) - 2;
+  const token2Strat = {
+    ['0x152b9d0FdC40C096757F570A51E494bd4b943E50']:
+      curAddresses.YieldYakStrategy2,
+    ['0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE']:
+      curAddresses.YieldYakStrategy2,
+    ['0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7']:
+      curAddresses.YieldYakAVAXStrategy2,
+    ['0x9e295B5B976a184B14aD8cd72413aD846C299660']:
+      curAddresses.YieldYakPermissiveStrategy2,
+    ['0xF7D9281e8e363584973F946201b82ba72C965D27']:
+      curAddresses.SimpleHoldingStrategy,
+  };
 
-  console.log('endPeriod', endPeriod);
-  console.log('startPeriod', startPeriod);
+  const tokens = Object.keys(token2Strat);
+  const strats = Object.values(token2Strat);
 
-  const stratRegistry = new ethers.Contract(
-    curAddresses.StrategyRegistry,
-    StrategyRegistry.abi,
-    provider
-  );
+  tokens.push('0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7');
+  strats.push(curAddresses.AltYieldYakAVAXStrategy2);
+  tokens.push('0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7');
+  strats.push(curAddresses.OldYieldYakAVAXStrategy2);
+  tokens.push('0x152b9d0FdC40C096757F570A51E494bd4b943E50');
+  strats.push(curAddresses.AltYieldYakStrategy2);
+  tokens.push('0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE');
+  strats.push(curAddresses.AltYieldYakStrategy2);
 
   const stratViewer = new ethers.Contract(
     curAddresses.StrategyViewer,
-    StrategyViewer.abi,
-    provider
+    new Interface(StrategyViewer.abi),
+    signer
+  );
+  const normalResults = await stratViewer.viewMetadata(
+    curAddresses.StableLending2,
+    tokens,
+    strats
   );
 
-  //get all enabled strategies
-  const enabledStrategies = await stratRegistry.allEnabledStrategies();
+  const { tokenDecimals, tokenValuePer1e18 } =
+    await getTokenDecimalsAndValue1e18(normalResults);
+  // console.log(normalResults);
 
-  //get all approved tokens for each strategy
-  const approvedTokens = await Promise.all(
-    enabledStrategies.map((address: any) => {
-      const contract = new ethers.Contract(address, IStrategy.abi, provider);
-      return contract.viewAllApprovedTokens();
-    })
-  );
-
-  //for each token, set the strategy as value
-  let token2Strat2: Record<string, string> = {};
-  for (let i = 0; i < enabledStrategies.length; i++) {
-    const strategy = enabledStrategies[i];
-    const tokens = approvedTokens[i];
-    for (let j = 0; j < tokens.length; j++) {
-      if (token2Strat2[tokens[j]] == undefined) {
-        token2Strat2[tokens[j]] = strategy;
-      }
-    }
-  }
-
-  //separate the tokens from the strategies
-  const tokens = Object.keys(token2Strat2);
-  const strats = Object.values(token2Strat2);
-
-  const noHarvestBalanceResults =
-    await stratViewer.viewMetadataNoHarvestBalance(
-      curAddresses.StableLending2,
-      curAddresses.OracleRegistry,
-      curAddresses.Stablecoin,
-      tokens,
-      strats
+  // get cache positions
+  const cachedPositions = (
+    await axios.get(
+      'https://raw.githubusercontent.com/MoreMoney-Finance/craptastic-api/main/src/v2-updated-positions.json'
+    )
+  ).data;
+  function parsePositionMeta(row: any, trancheContract: string) {
+    const debt = row.debt;
+    const posYield = row.yield;
+    const collateralParsed = formatUnits(
+      row.collateral,
+      tokenDecimals[row.token]
     );
 
-  //query the strategy metadata for each token
-  const stratMeta = [...noHarvestBalanceResults];
+    const borrowablePercent = row.borrowablePer10k.toNumber() / 100;
 
-  //get legacy opened positions
-  const legacyRows = await Promise.all(
-    Array(endPeriod - startPeriod)
-      .fill(startPeriod)
-      .map(async (x, y) => {
-        return await new ethers.Contract(
-          curAddresses.IsolatedLending,
-          IsolatedLending.abi,
-          provider
-        ).viewPositionsByTrackingPeriod(x + y);
-      })
-  );
+    return {
+      trancheContract,
+      trancheId: row.trancheId.toNumber(),
+      strategy: row.strategy,
+      debt,
+      collateral: row.collateral,
+      collateralParsed,
+      yield: posYield,
+      token: row.token,
+      collateralValue: row.collateralValue,
+      borrowablePercent,
+      owner: row.owner,
+      liquidationPrice: debt.gt(posYield)
+        ? calcLiquidationPrice(
+            borrowablePercent,
+            parseFloat(ethers.utils.formatEther(debt.sub(posYield))),
+            parseFloat(collateralParsed!)
+          )
+        : 0,
+    };
+  }
+  const parsedCachePositions = Object.values(cachedPositions.positions)
+    .map((pos: any) => ({
+      trancheId: BigNumber.from(pos.trancheId),
+      strategy: pos.strategy,
+      collateral: BigNumber.from(pos.collateral),
+      collateralParsed: pos.collateral,
+      debt: parseEther(pos.debt.toString()),
+      token: pos.token,
+      collateralValue: parseEther(pos.collateralValue.toString()),
+      borrowablePer10k: BigNumber.from(pos.borrowablePer10k),
+      owner: pos.owner,
+      yield: BigNumber.from(0),
+      trancheContract: pos.trancheContract,
+    }))
+    .map((pos) => parsePositionMeta(pos, pos.trancheContract));
 
-  //get current opened positions
+  const TWELVE_HOURS_SECONDS = 43200;
+  const START = cachedPositions.tstamp;
+  const endPeriod = 1 + Math.round(Date.now() / 1000 / TWELVE_HOURS_SECONDS);
+  const startPeriod = Math.floor(START / 1000 / TWELVE_HOURS_SECONDS) - 2;
+
   const currentRows = await Promise.all(
     Array(endPeriod - startPeriod)
       .fill(startPeriod)
@@ -98,76 +154,113 @@ async function run(): Promise<void> {
         return await new ethers.Contract(
           curAddresses.StableLending2,
           StableLending2.abi,
-          provider
+          signer
         ).viewPositionsByTrackingPeriod(x + y);
       })
   );
-  const dollar = ethers.utils.parseEther('1');
-
-  //merge the two arrays and set the corresponding trancheContract for legacy and current
-  const positions = [
-    ...legacyRows.flat().map((x) => {
-      return { ...x, trancheContract: curAddresses.IsolatedLending };
-    }),
-    ...currentRows.flat().map((x) => {
-      return { ...x, trancheContract: curAddresses.StableLending2 };
-    }),
+  function parseRows(rows: [][], trancheContract: string) {
+    return rows
+      .flatMap((x) => x)
+      .filter((x) => x)
+      .map((row) => parsePositionMeta(row, trancheContract));
+  }
+  const updatedPositions = [
+    ...((currentRows.length > 0 &&
+      parseRows(currentRows, curAddresses.StableLending2)) ||
+      []),
   ];
+  // console.log('parseCachePositions', parsedCachePositions);
+  // console.log('updatedPositions', updatedPositions);
+  const jointUpdatedPositions = [...parsedCachePositions, ...updatedPositions];
 
-  //stable coins addresses to filter out
-  const stableCoins = [
-    '0xc7198437980c041c805a1edcba50c1ce5db95118',
-    '0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664',
-    '0xd586e7f844cea2f87f50152665bcbc2c279d8d70',
-    '0xd24c2ad096400b6fbcd2ad8b24e7acbc21a1da64',
-  ].map((x) => x.toUpperCase());
-
-  //get each token decimals in order to calculate the usdPrice
-  const tokensDecimals = await Promise.all(
-    positions.map((posMeta) => {
-      const contract = new ethers.Contract(
-        posMeta.token,
-        [
-          {
-            inputs: [],
-            name: 'decimals',
-            outputs: [
-              {
-                internalType: 'uint8',
-                name: '',
-                type: 'uint8',
-              },
-            ],
-            stateMutability: 'view',
-            type: 'function',
-          },
-        ],
-        provider
-      );
-      return contract.decimals();
+  const updatedMetadata = await Promise.all(
+    jointUpdatedPositions.map(async (pos) => {
+      return await new ethers.Contract(
+        curAddresses.StableLending2,
+        StableLending2.abi,
+        signer
+      ).viewPositionMetadata(pos.trancheId);
     })
   );
+  const updatedPositionMetadata = updatedMetadata
+    .filter((x) => x !== undefined)
+    .map((pos) => {
+      return parsePositionMeta(pos, pos.trancheContract);
+    });
 
-  //calculate the usdPrice and check if the position is liquidatable
-  const liquidatablePositions = positions
-    .filter((posMeta, index) => {
-      const rows = stratMeta.filter((x) => x.token === posMeta.token);
+  const updatedDataMap = updatedPositionMetadata.reduce((acc, x) => {
+    acc[x.trancheId] = x;
+    return acc;
+  }, {} as Record<string, any>);
+  const parsedPositions = new Map<number, any>();
+  for (let index = 0; index < jointUpdatedPositions.length; index++) {
+    const pos = jointUpdatedPositions[index];
+    const posUpdatedData = {
+      ...updatedDataMap[pos.trancheId],
+      trancheContract: pos.trancheContract,
+    };
+    parsedPositions.set(pos.trancheId, posUpdatedData);
+  }
+  const dollar = parseEther('1');
 
-      const tokenPrice =
-        parseFloat(ethers.utils.formatEther(rows[0].valuePer1e18)) /
-        10 ** (18 - tokensDecimals[index]);
-      const borrowablePercent = posMeta.borrowablePer10k.toNumber() / 100;
-      const collateralVal = parseFloat(posMeta.collateral!) * tokenPrice;
+  const { coingeckoPrices } = await fetchPrices(tokenDecimals);
+
+  const liquidatablePositions = Array.from(parsedPositions.values()).filter(
+    (posMeta) => {
+      const tokenPrice = coingeckoPrices[posMeta.token];
+
+      const collateralVal = parseFloat(posMeta.collateralParsed) * tokenPrice;
+
       const totalPercentage =
-        parseFloat(posMeta.collateral!) > 0 && tokenPrice > 0
-          ? (100 * parseFloat(posMeta.debt)) / collateralVal
+        parseFloat(posMeta.collateralParsed) > 0 && tokenPrice > 0
+          ? (100 * parseFloat(ethers.utils.formatEther(posMeta.debt))) /
+            collateralVal
           : 0;
-      const liquidatableZone = borrowablePercent;
 
-      return totalPercentage > liquidatableZone && posMeta.debt.lt(dollar);
-    })
-    .filter((posMeta) => !stableCoins.includes(posMeta.token.toUpperCase()));
-  console.log(positions);
+      const liquidatableZone = posMeta.borrowablePercent;
+
+      return (
+        1.25 * posMeta.liquidationPrice > tokenPrice &&
+        totalPercentage > liquidatableZone &&
+        posMeta.debt.gt(dollar) &&
+        posMeta.trancheId !== 400000005
+      );
+    }
+  );
+  console.log(
+    'liquidatablePositions',
+    liquidatablePositions,
+    liquidatablePositions.length
+  );
+
+  if (liquidatablePositions.length > 0) {
+    const { coingeckoPrices: prices, oraclePrices } = await fetchPrices(
+      tokenDecimals
+    );
+
+    // update oracle prices;
+
+    for (let index = 0; index < Object.keys(prices).length; index++) {
+      const token = Object.keys(prices)[index];
+      const priceOnCoingecko = prices[token];
+      const priceOnOracle = oraclePrices[token];
+
+      // if the price diff on oracle is still lower than the price on the coingecko
+      // update the oracle
+      if (priceOnOracle * priceDiffPercentage < priceOnCoingecko) {
+        await getAmountInPeg(token, parseUnits('1', tokenDecimals[token]));
+      }
+    }
+
+    for (let index = 0; index < liquidatablePositions.length; index++) {
+      const position = liquidatablePositions[index];
+      await primitiveLiquidate({
+        ...position,
+        debtParam: position.debt,
+        positionYield: position.yield,
+      });
+    }
+  }
 }
 
 run();

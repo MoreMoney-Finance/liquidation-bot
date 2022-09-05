@@ -1,6 +1,7 @@
 import { formatUnits } from '@ethersproject/units';
 import axios from 'axios';
 import { BigNumber, ethers } from 'ethers';
+import { getOraclePrice } from './oracle';
 import { moneyToken } from './utils/constants';
 import { loadKey } from './utils/load-key';
 
@@ -11,8 +12,6 @@ const tokensCoingecko: Record<string, string | null> = {
   '0x9e295B5B976a184B14aD8cd72413aD846C299660': null,
   '0xF7D9281e8e363584973F946201b82ba72C965D27': null,
 };
-
-const { signer } = loadKey();
 
 export async function getTokenPrice(token: string, amount: BigNumber) {
   const coingeckoPrice = await getCoingeckoPrice(token);
@@ -33,48 +32,4 @@ export async function getCoingeckoPrice(token: string) {
   } else {
     return null;
   }
-}
-
-export async function getOraclePrice(token: string, amount: BigNumber) {
-  const contract = new ethers.Contract(
-    '0x567Cf1675F5cb3c0457B35753d76e83E37CDBe96',
-    [
-      {
-        inputs: [
-          { internalType: 'address', name: 'token', type: 'address' },
-          { internalType: 'uint256', name: 'inAmount', type: 'uint256' },
-          { internalType: 'address', name: 'pegCurrency', type: 'address' },
-        ],
-        name: 'viewAmountInPeg',
-        outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
-        stateMutability: 'view',
-        type: 'function',
-      },
-    ],
-    signer
-  );
-  return await contract.viewAmountInPeg(token, amount, moneyToken);
-}
-
-export async function getAmountInPeg(token: string, amount: BigNumber) {
-  const contract = new ethers.Contract(
-    '0x567Cf1675F5cb3c0457B35753d76e83E37CDBe96',
-    [
-      {
-        inputs: [
-          { internalType: 'address', name: 'token', type: 'address' },
-          { internalType: 'uint256', name: 'inAmount', type: 'uint256' },
-          { internalType: 'address', name: 'pegCurrency', type: 'address' },
-        ],
-        name: 'getAmountInPeg',
-        outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-    ],
-    signer
-  );
-  return await (
-    await contract.getAmountInPeg(token, amount, moneyToken)
-  ).wait();
 }
