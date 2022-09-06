@@ -6,10 +6,9 @@ import { loadKey } from './utils/load-key';
 import axios from 'axios';
 import { formatUnits, parseEther, parseUnits } from '@ethersproject/units';
 import { Interface } from 'ethers/lib/utils';
-import { getTokenPrice } from './coingecko';
 import { primitiveLiquidate } from './liquidate';
-import { getAmountInPeg, getOraclePrice } from './oracle';
-import { getTokenDecimalsAndValue1e18 } from './tokens';
+import { getAmountInPeg } from './oracle';
+import { fetchPrices, getTokenDecimalsAndValue1e18 } from './tokens';
 
 export function calcLiquidationPrice(
   borrowablePercent: number,
@@ -23,27 +22,7 @@ export function calcLiquidationPrice(
   }
 }
 
-async function fetchPrices(tokenDecimals: Record<string, number>) {
-  const keys = Object.keys(tokenDecimals);
-  let coingeckoPrices: Record<string, number> = {};
-  let oraclePrices: Record<string, number> = {};
-
-  for (let index = 0; index < keys.length; index++) {
-    const token = keys[index];
-    const amount = parseUnits('1', tokenDecimals[token]);
-    const price = await getTokenPrice(token, amount);
-    const oraclePrice = await getOraclePrice(token, amount);
-    coingeckoPrices[token] = price;
-    oraclePrices[token] = parseFloat(ethers.utils.formatEther(oraclePrice));
-  }
-
-  console.log(coingeckoPrices);
-  console.log(oraclePrices);
-
-  return { coingeckoPrices, oraclePrices };
-}
-
-async function run(): Promise<void> {
+export async function run(): Promise<void> {
   // diff of 5%
   const priceDiffPercentage = 1.05;
   const curAddresses = addresses['43114'];
@@ -85,7 +64,7 @@ async function run(): Promise<void> {
     strats
   );
 
-  const { tokenDecimals, tokenValuePer1e18 } =
+  const { tokenDecimals } =
     await getTokenDecimalsAndValue1e18(normalResults);
   // console.log(normalResults);
 
@@ -95,6 +74,7 @@ async function run(): Promise<void> {
       'https://raw.githubusercontent.com/MoreMoney-Finance/craptastic-api/main/src/v2-updated-positions.json'
     )
   ).data;
+
   function parsePositionMeta(row: any, trancheContract: string) {
     const debt = row.debt;
     const posYield = row.yield;
@@ -119,10 +99,10 @@ async function run(): Promise<void> {
       owner: row.owner,
       liquidationPrice: debt.gt(posYield)
         ? calcLiquidationPrice(
-            borrowablePercent,
-            parseFloat(ethers.utils.formatEther(debt.sub(posYield))),
-            parseFloat(collateralParsed!)
-          )
+          borrowablePercent,
+          parseFloat(ethers.utils.formatEther(debt.sub(posYield))),
+          parseFloat(collateralParsed!)
+        )
         : 0,
     };
   }
@@ -158,12 +138,14 @@ async function run(): Promise<void> {
         ).viewPositionsByTrackingPeriod(x + y);
       })
   );
+
   function parseRows(rows: [][], trancheContract: string) {
     return rows
       .flatMap((x) => x)
       .filter((x) => x)
       .map((row) => parsePositionMeta(row, trancheContract));
   }
+
   const updatedPositions = [
     ...((currentRows.length > 0 &&
       parseRows(currentRows, curAddresses.StableLending2)) ||
@@ -214,7 +196,7 @@ async function run(): Promise<void> {
       const totalPercentage =
         parseFloat(posMeta.collateralParsed) > 0 && tokenPrice > 0
           ? (100 * parseFloat(ethers.utils.formatEther(posMeta.debt))) /
-            collateralVal
+          collateralVal
           : 0;
 
       const liquidatableZone = posMeta.borrowablePercent;
@@ -261,6 +243,7 @@ async function run(): Promise<void> {
       });
     }
   }
+  return;
 }
 
 run();
