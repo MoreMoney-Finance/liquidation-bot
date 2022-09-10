@@ -1,6 +1,8 @@
 # Moremoney liquidation bot 
 
-Borrow yield bearing stablecoin MONEY while still earning yield on your collateral
+The purpose of this bot is to liquidate borrow positions that have exceeded the allowable loan-to-value ratio (LTV).
+
+We are open sourcing it in order to facilitate liquidations, which makes the Moremoney protocol more secure. 
 
 # Install
 
