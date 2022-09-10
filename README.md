@@ -1,8 +1,6 @@
 # Moremoney liquidation bot 
 
-The purpose of this bot is to liquidate borrow positions that have exceeded the allowable loan-to-value ratio (LTV).
-
-We are open sourcing it in order to facilitate liquidations, which makes the Moremoney protocol more secure. 
+The purpose of this bot is to liquidate positions that have exceeded the allowable loan-to-value ratio (LTV) on the Moremoney protocol. It is open sourced in order to encourage liquidator participation; which makes the Moremoney protocol more secure. 
 
 # Install
 
